@@ -1,8 +1,8 @@
 import { readFileSync } from "fs";
 
-// Split the file into an array of rows and each row into an array of characters
-const file: string[] = readFileSync("day3.txt", "utf-8").split("\r\n");
-const ranks: string[][] = file.map((line) => line.split(""));
+// Split the rows into an array of rows and each row into an array of characters
+const rows: string[] = readFileSync("day3.txt", "utf-8").split("\r\n");
+const columns: string[][] = rows.map((line) => line.split(""));
 
 const symbolTokens = [];
 const numberTokens = [];
@@ -38,27 +38,27 @@ function rectanglesIntersectWithLine (r1: rectangle, line: straightLine): boolea
     return false;
 }
 
-for (let y = 0; y < ranks.length; y++) {
+for (let y = 0; y < columns.length; y++) {
     let x = 0;
-    while (x < ranks[y].length) {
-        if (ranks[y][x] === ".") {
+    while (x < columns[y].length) {
+        if (columns[y][x] === ".") {
             x++
-        } else if (ranks[y][x].match(/\d/)) {
+        } else if (columns[y][x].match(/\d/)) {
             const start: number = x;
             let number: string = "";
 
-            while (ranks[y][x].match(/\d/)) {
-                number += ranks[y][x];
+            while (columns[y][x].match(/\d/)) {
+                number += columns[y][x];
                 x++;
 
-                if (x >= ranks[y].length) {
+                if (x >= columns[y].length) {
                     break;
                 }
             }
 
             numberTokens.push({ number: parseInt(number), y, start, end: x - 1 });
         } else {
-            symbolTokens.push({ x, y, symbol: ranks[y][x] });
+            symbolTokens.push({ x, y, symbol: columns[y][x] });
             x++;
         }
     }
