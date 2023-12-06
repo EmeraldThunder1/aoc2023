@@ -1,3 +1,5 @@
+// TODO: Multithreading?
+
 import { readFileSync } from "fs";
 
 interface SeedMap {
@@ -24,7 +26,8 @@ function getMapValue(ranges: Range[], key: number): number {
     return result;
 }
 
-const file = readFileSync("./day5.txt", "utf-8");
+const file: string = readFileSync("./day5.txt", "utf-8");
+
 const lines = file.split("\r\n").filter(x => x);
 
 const seeds: number[] = lines[0].split(" ").slice(1).map(x => parseInt(x));

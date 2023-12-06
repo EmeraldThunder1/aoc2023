@@ -2,3 +2,4 @@ code.ts
 **/**.js
 node_modules
 .vscode
+**.txt
