@@ -1,5 +1,5 @@
 code.ts
 **/**.js
-node_modules
+node_modules/
 .vscode
 **.txt
