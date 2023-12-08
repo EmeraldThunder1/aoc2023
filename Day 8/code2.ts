@@ -36,10 +36,10 @@ for (const instruction of input.slice(1)) {
     }
 }
 
-const startPostitions = Array.from(instructions.keys()).filter(x => x[x.length-1] === "A");
+const startPositions = Array.from(instructions.keys()).filter(x => x[x.length-1] === "A");
 const endIndices = [];
 
-for (const startPosition of startPostitions) {
+for (const startPosition of startPositions) {
     let currentLocation = startPosition;
     let currentIndex = 0;
 
